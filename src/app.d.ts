@@ -15,3 +15,9 @@ type SortByProperty = (
 	property: string,
 	options?: { desc: boolean }
 ) => number;
+
+// objects
+type Card = {
+	name: string;
+	official: boolean;
+};

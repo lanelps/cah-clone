@@ -1,27 +1,29 @@
 <script lang="ts">
+	// imports
 	import type { PageData } from './$types';
+
+	// data
 	export let data: PageData;
+	const { packs } = data;
 
-	import { sortByProperty } from '../utils/helpers';
+	let activePack: string;
 
-	const { cards } = data;
-	// console.log(`cards`, cards);
-
-	const packs = cards
-		.map((card) => ({ name: card.name, official: card.official }))
-		.sort((a, b) => sortByProperty(a, b, 'name'));
-
-	// console.log(`packs`, packs);
+	// methods
+	const setActivepack = (value: string) => {
+		activePack = value;
+	};
 </script>
 
 <template>
 	<section class="container">
 		<h1 class="title">CAH Clone</h1>
 
+		<h2 class="active-pack">Acitve pack: {activePack || `None`}</h2>
+
 		<ul class="packs">
 			{#each packs as pack}
 				<li class="pack">
-					<button>
+					<button on:click={() => setActivepack(pack.name)}>
 						{pack?.name}
 					</button>
 				</li>
@@ -36,7 +38,8 @@
 
 		padding: 1.5rem var(--padding);
 
-		.title {
+		.title,
+		.active-pack {
 			margin-bottom: 1.5rem;
 		}
 
