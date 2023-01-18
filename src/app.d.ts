@@ -17,7 +17,20 @@ type SortByProperty = (
 ) => number;
 
 // objects
-type Card = {
+type Pack = {
+	black: [QuestionCard];
 	name: string;
 	official: boolean;
+	white: [AnswerCard];
+};
+
+type AnswerCard = {
+	text: string;
+	pack: number;
+};
+
+type QuestionCard = {
+	text: string;
+	pick: number;
+	pack: number;
 };
