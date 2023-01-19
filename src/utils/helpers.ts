@@ -10,3 +10,7 @@ export const sortByProperty: SortByProperty = (
 		return first[property] < second[property] ? -1 : 1 || 0;
 	}
 };
+
+export const shuffleArray: ShuffleArray = (arr) => {
+	return arr.sort(() => (Math.random() > 0.5 ? 1 : -1));
+};

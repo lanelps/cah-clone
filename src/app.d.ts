@@ -16,6 +16,8 @@ type SortByProperty = (
 	options?: { desc: boolean }
 ) => number;
 
+type ShuffleArray = (arr: Array) => Array;
+
 // objects
 interface Pack {
 	black: QuestionCard[];
