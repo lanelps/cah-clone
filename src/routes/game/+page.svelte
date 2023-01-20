@@ -21,7 +21,6 @@
 	const setNextQuestion = () => {
 		if (currentQuestionIndex >= deck.questions.length - 1) {
 			currentQuestionIndex = 0;
-			console.log(`Questions finished`);
 			return;
 		}
 
@@ -30,8 +29,6 @@
 
 	const setNextAnswerCard = (cardIndex: number) => {
 		answerCards[cardIndex] = currentAnswerIndex;
-
-		console.log(`answerCards`, answerCards);
 
 		if (currentAnswerIndex >= deck.answers.length - 1) {
 			currentAnswerIndex = 0;
@@ -46,7 +43,6 @@
 			<h1>Game</h1>
 
 			<div>
-				<h2>Packs in use</h2>
 				<p>
 					{#each packTypes as type}
 						<span> {type}, </span>
